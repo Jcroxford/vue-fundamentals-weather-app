@@ -7,7 +7,9 @@
 
 <script>
   import Nav from './components/Nav.vue';
-  import Home from './components/Home.vue'
+  import Home from './components/Home.vue';
+
+  import api from './utils/api';
 
   export default {
     data () {
@@ -18,6 +20,9 @@
     components: {
       appNav: Nav,
       appHome: Home,
+    },
+    methods: {
+      getWeather: api.getCurrentWeather,
     }
   }
 </script>

@@ -1,19 +1,41 @@
 <template>
   <form class="zipcode-container" :style="chooseFlexDir">
-    <input type="text"  placeholder="St. George, Utah" class="form-control">
-    <button class="btn btn-success my-btn">Get weather</button>
+    <input 
+      type="text"  
+      placeholder="St. George, Utah" 
+      class="form-control"
+      v-model="location"
+    >
+    <button 
+      class="btn btn-success my-btn" 
+      @click="getWeather"
+      :disabled="location == ''"
+    >
+      Get weather
+    </button>
   </form>
 </template>
 
 <script>
+  import api from '../utils/api';
+
   export default {
     props: ['flexDir'],
     data() {
       return {
         chooseFlexDir: {
           'flex-direction': this.flexDir,
-        }
+        },
+        location: '',
       }
+    },
+    methods: {
+      getWeather(e) {
+        e.preventDefault();
+
+        api.getCurrentWeather(this.location);
+        api.getFiveDayWeather(this.location);
+      } 
     }
   }
 </script>
