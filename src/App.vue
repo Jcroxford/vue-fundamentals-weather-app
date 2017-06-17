@@ -1,18 +1,25 @@
 <template>
-  <div id="app">
-    <p>hello world</p>
+  <div class="container">
+    <app-nav></app-nav>
+    <app-home></app-home>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+  import Nav from './components/Nav.vue';
+  import Home from './components/Home.vue'
+
+  export default {
+    data () {
+      return {
+        msg: 'HELLO WORLD'
+      }
+    },
+    components: {
+      appNav: Nav,
+      appHome: Home,
     }
   }
-}
 </script>
 
 <style>
