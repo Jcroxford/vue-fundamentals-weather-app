@@ -1,15 +1,13 @@
 <template>
   <div class="container">
     <app-nav></app-nav>
-    <app-home></app-home>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Nav from './components/Nav.vue';
-  import Home from './components/Home.vue';
-
-  import api from './utils/api';
+  //import Home from './components/Home.vue';
+  import Nav  from './components/Nav.vue';
 
   export default {
     data () {
@@ -19,11 +17,8 @@
     },
     components: {
       appNav: Nav,
-      appHome: Home,
+      //appHome: Home,
     },
-    methods: {
-      getWeather: api.getCurrentWeather,
-    }
   }
 </script>
 

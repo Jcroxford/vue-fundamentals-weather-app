@@ -1,6 +1,6 @@
 <template>
   <div class="navbar">
-    <h1>My Weather App</h1>
+    <router-link to="/" tag="h1" class="logo">My Weather App</router-link>
     <app-search-form flexDir="row"></app-search-form>
   </div>
 </template>
@@ -14,3 +14,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .logo:hover {
+    cursor: pointer;
+  }
+</style>

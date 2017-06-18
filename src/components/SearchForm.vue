@@ -32,9 +32,9 @@
     methods: {
       getWeather(e) {
         e.preventDefault();
-
-        api.getCurrentWeather(this.location);
-        api.getFiveDayWeather(this.location);
+        this.$router.push({path: 'forecast', query: {city: this.location} });
+        // api.getCurrentWeather(this.location);
+        // api.getFiveDayWeather(this.location);
       } 
     }
   }
