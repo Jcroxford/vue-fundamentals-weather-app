@@ -2,14 +2,17 @@
   <div>
     <app-loading v-if="!weatherData"></app-loading>
     <div v-else>
-      <h1>hello forecast view</h1>  
-      <p>city: {{$route.query.city}}</p>
+      <h1 class="forecast-header">Results for: {{$route.query.city}}</h1>  
+      <div class="forecast-container">
+        <app-simple-day v-for="day in weatherData.fiveDayWeather" :day="day"></app-simple-day>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Loading from './Loading.vue';
+  import Loading   from './Loading.vue';
+  import SimpleDay from './SimpleDay.vue';
 
   import api from '../utils/api';
 
@@ -21,10 +24,11 @@
     },
     components: {
       appLoading: Loading,
+      appSimpleDay: SimpleDay,
     },
     created() {
       api.getWeatherData(this.$route.query.city)
-        .then( data => this.weatherData = data );
+        .then( data => this.weatherData = data);
     }  
   }
 

@@ -116,7 +116,7 @@ a {
   max-width: 1200px;
   margin: 50px auto;
 }
-.dayContainer {
+.day-container {
   display: flex;
   align-items: center;
   justify-content: center;
