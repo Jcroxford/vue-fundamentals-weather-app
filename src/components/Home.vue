@@ -20,5 +20,4 @@
   .home-img {
     background-image: url('../assets/images/pattern.svg');
   }
-  
 </style>

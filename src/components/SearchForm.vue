@@ -32,8 +32,6 @@
         e.preventDefault();
         this.$router.push({path: 'forecast', query: {city: this.location} });
         this.location = '';
-        // api.getCurrentWeather(this.location);
-        // api.getFiveDayWeather(this.location);
       } 
     }
   }

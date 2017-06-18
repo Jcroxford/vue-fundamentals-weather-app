@@ -4,7 +4,12 @@
     <div v-else>
       <h1 class="forecast-header">Results for: {{$route.query.city}}</h1>  
       <div class="forecast-container">
-        <app-simple-day v-for="day in weatherData.fiveDayWeather" :day="day"></app-simple-day>
+        <app-simple-day 
+          v-for="day in weatherData.fiveDayWeather" 
+          :day="day"
+          :key="day.dt"
+          @showDetailed="getDetailedView($event)"
+        ></app-simple-day>
       </div>
     </div>
   </div>
@@ -25,6 +30,14 @@
     components: {
       appLoading: Loading,
       appSimpleDay: SimpleDay,
+    },
+    methods: {
+      getDetailedView(day) {
+        this.$router.push({
+          path: 'details', 
+          query: {city: this.$route.query.city, day} 
+        });
+      }
     },
     created() {
       api.getWeatherData(this.$route.query.city)

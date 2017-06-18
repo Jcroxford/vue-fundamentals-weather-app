@@ -7,6 +7,8 @@
 
 <script>
   //TODO: create error page for when user enters invalid data
+  //TODO: change detailed view to show current weather info for 
+  //      the current day instaed of using the 5 day weather info
   import Nav from './components/Nav.vue';
 
   export default {
