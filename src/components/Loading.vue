@@ -20,7 +20,6 @@
         } else {
           this.ellipses += '.';
         }
-        console.log('im running right now')
       }, 300);
     },
     beforeDestroy() {

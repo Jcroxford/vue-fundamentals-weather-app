@@ -7,9 +7,8 @@ function getCurrentWeather(location) {
 
    return axios.get(encodedURI)
     .then( response => {
-      console.log(JSON.stringify(response.data, null, 3));
-    })
-    .catch(handleError);
+      return response.data;
+    });
 }
 
 function getFiveDayWeather(location) {
@@ -17,8 +16,8 @@ function getFiveDayWeather(location) {
 
   return axios.get(encodedURI)
     .then( response => {
-      console.log(response.data.list);
-    })
+      return response.data.list;
+    });
 }
 
 function handleError(error) {
@@ -26,15 +25,21 @@ function handleError(error) {
   return null;
 }
 
-const currentWeather = `http://api.openweathermap.org/data/2.5/weather?q=${location}&type=accurate&APPID=${apiKey}`
-
-const fiveDayWeather = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${location}&type=accurate&APPID=${apiKey}&cnt=5`
-
 export default {
-  getCurrentWeather,
-  getFiveDayWeather,
+  getWeatherData: location => {
+    return axios.all([
+      getCurrentWeather(location),
+      getFiveDayWeather(location)
+    ])
+      .then( data => {
+        const currentWeather = data[0];
+        const fiveDayWeather = data[1];
+
+        return {
+          currentWeather,
+          fiveDayWeather
+        };
+      })
+      .catch(handleError);
+  },
 }
-
-// simple view: day, month, monthday, weather image city as header
-
-// detail view: weather image, date info, location, weather description, min/max temp, humidity

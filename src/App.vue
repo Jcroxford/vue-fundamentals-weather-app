@@ -6,13 +6,12 @@
 </template>
 
 <script>
-  //import Home from './components/Home.vue';
-  import Nav  from './components/Nav.vue';
+  //TODO: create error page for when user enters invalid data
+  import Nav from './components/Nav.vue';
 
   export default {
     components: {
       appNav: Nav,
-      //appHome: Home,
     },
   }
 </script>
