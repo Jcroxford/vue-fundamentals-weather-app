@@ -10,11 +10,6 @@
   import Nav  from './components/Nav.vue';
 
   export default {
-    data () {
-      return {
-        msg: 'HELLO WORLD'
-      }
-    },
     components: {
       appNav: Nav,
       //appHome: Home,

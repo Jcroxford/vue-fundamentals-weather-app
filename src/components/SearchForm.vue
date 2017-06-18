@@ -17,8 +17,6 @@
 </template>
 
 <script>
-  import api from '../utils/api';
-
   export default {
     props: ['flexDir'],
     data() {
@@ -33,6 +31,7 @@
       getWeather(e) {
         e.preventDefault();
         this.$router.push({path: 'forecast', query: {city: this.location} });
+        this.location = '';
         // api.getCurrentWeather(this.location);
         // api.getFiveDayWeather(this.location);
       } 
