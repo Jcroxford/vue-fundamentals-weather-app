@@ -40,12 +40,18 @@
           params: {day: 'test'},
           query: {city: this.$route.query.city}
         });
+      },
+      fetchWeather() {
+        api.getWeatherData(this.$route.query.city)
+          .then( data => this.weatherData = data);
       }
     },
     created() {
-      api.getWeatherData(this.$route.query.city)
-        .then( data => this.weatherData = data);
-    }  
+      this.fetchWeather();
+    },
+    beforeUpdate() {
+      this.fetchWeather();
+    }
   }
 </script>
 
