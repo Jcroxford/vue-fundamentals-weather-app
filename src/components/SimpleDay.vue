@@ -1,7 +1,7 @@
 <template>
   <div class="day-container" @click="showDetailed">
     <img 
-      :src="`src/assets/images/weather-icons/${day.weather[0].icon}.svg`" 
+      :src="`../src/assets/images/weather-icons/${day.weather[0].icon}.svg`" 
       alt="weather icon"
       class="weather"
     >

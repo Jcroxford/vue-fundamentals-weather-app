@@ -6,5 +6,5 @@ import Home        from './components/Home.vue';
 export const routes = [
   {path: '/', component: Home},
   {path: '/forecast', component: Forecast},
-  {path: '/details', component: DetailedDay},
+  {path: '/details/:day', component: DetailedDay, props: true },
 ];

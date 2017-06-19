@@ -25,6 +25,7 @@
     data() {
       return {
         weatherData: null,
+        dayData: '',
       }
     },
     components: {
@@ -33,9 +34,11 @@
     },
     methods: {
       getDetailedView(day) {
+        this.dayData = day;
         this.$router.push({
-          path: 'details', 
-          query: {city: this.$route.query.city, day} 
+          path: `details/${JSON.stringify(day, null, 3)}`,
+          params: {day: 'test'},
+          query: {city: this.$route.query.city}
         });
       }
     },
@@ -44,9 +47,5 @@
         .then( data => this.weatherData = data);
     }  
   }
-
-// simple view: day, month, monthday, weather image city as header
-
-// detail view: weather image, date info, location, weather description, min/max temp, humidity
 </script>
 
