@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiKey = '3af5d393e9826f8e9c08ee5f67571f39';
+import {apiKey} from './apiKey';
 
 function getCurrentWeather(location) {
   const encodedURI = window.encodeURI(`http://api.openweathermap.org/data/2.5/weather?q=${location}&type=accurate&APPID=${apiKey}`);

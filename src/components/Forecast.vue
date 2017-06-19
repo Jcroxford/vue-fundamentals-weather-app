@@ -37,20 +37,20 @@
         this.dayData = day;
         this.$router.push({
           path: `details/${JSON.stringify(day, null, 3)}`,
-          params: {day: 'test'},
           query: {city: this.$route.query.city}
         });
       },
-      fetchWeather() {
-        api.getWeatherData(this.$route.query.city)
+      fetchWeather(location) {
+        api.getWeatherData(location)
           .then( data => this.weatherData = data);
       }
     },
     created() {
-      this.fetchWeather();
+      this.fetchWeather(this.$route.query.city);
     },
-    beforeUpdate() {
-      this.fetchWeather();
+    beforeRouteUpdate(to, from, next) {
+      this.fetchWeather(to.query.city);
+      next();
     }
   }
 </script>

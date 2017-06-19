@@ -1,5 +1,8 @@
 # Original curriculum was setup for react. This project follows the same guidelines except built using vue
 
+## IMPORTANT
+The source files for this app do not contain a useable api key. In order to for this to work properly, you must first receive your own key with [Open Weather](http://openweathermap.org/appid), create a file called 'apiKey.js' in src/utils/ and export that key as a string constant called 'apiKey'.
+
 <img src="https://cloud.githubusercontent.com/assets/2933430/24846370/3443ccfc-1d77-11e7-8d1d-dc64d86c3852.png" width="300" align="right">
 
 Curriculum for React Fundamentals Course
